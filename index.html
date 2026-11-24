@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#17251f">
+<title>ممالك — بناء المدينة</title>
+<link rel="stylesheet" href="./style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.1/examples/jsm/"}}</script>
+</head>
+<body>
+<div id="game">
+<header class="topbar">
+<div class="brand"><span class="crest">♜</span><div><b>مَمَالِك</b><small>مملكة جديدة • المرحلة الأولى</small></div></div>
+<div class="resources"><span>🪵 <b id="wood">500</b></span><span>🪨 <b id="stone">350</b></span><span>🪙 <b id="gold">250</b></span><span>🌾 <b id="food">400</b></span></div>
+<button id="saveBtn" class="small-btn">حفظ</button>
+</header>
+<main>
+<section id="viewport">
+<div class="hint" id="hint">اسحب لتدوير الكاميرا • اختر مبنى ثم اضغط على الأرض لوضعه</div>
+<div class="mode-switch"><button class="active" data-mode="build">🏗️ البناء</button><button data-mode="look">🧭 الاستكشاف</button></div>
+<div id="toast" class="toast"></div><div id="loading" class="loading">جارٍ تجهيز المدينة…</div>
+</section>
+<aside class="panel">
+<div class="panel-head"><h2>إدارة المملكة</h2><span class="online">● عالمك</span></div>
+<div class="tabs"><button class="tab active" data-tab="buildings">المباني</button><button class="tab" data-tab="tasks">المهام</button><button class="tab" data-tab="info">الدليل</button></div>
+<section id="buildings" class="tab-content">
+<p class="section-label">كتالوج المجسمات</p><label class="field-label" for="category">التصنيف</label><select id="category"></select>
+<label class="field-label" for="model">اختر المجسم</label><select id="model"></select>
+<div class="preview-box"><div class="preview-icon">🏰</div><div><b id="modelName">مركز المدينة</b><small id="modelCategory">المباني الرئيسية</small></div></div>
+<button id="placeBtn" class="primary">＋ وضع المبنى في المدينة</button><button id="cancelBtn" class="secondary">إلغاء وضع المبنى</button>
+<div class="section-label row-label"><span>مبانٍ مقترحة</span><small>اختيار سريع</small></div><div id="quickBuild" class="quick-grid"></div>
+</section>
+<section id="tasks" class="tab-content hidden"><p class="section-label">أهداف المرحلة الأولى</p>
+<div class="task">🏰 <span>إنشاء مركز المدينة</span><b>✓</b></div><div class="task">🏠 <span>إضافة مساكن للسكان</span><small>قيد التنفيذ</small></div>
+<div class="task">🌾 <span>إنشاء مزرعة للغذاء</span><small>قيد التنفيذ</small></div><div class="task">🛒 <span>إنشاء سوق للتجارة</span><small>قيد التنفيذ</small></div>
+<p class="note">المهام هنا واجهة أولية، وسيتم ربطها لاحقاً بنظام السكان والاقتصاد والتقدم.</p></section>
+<section id="info" class="tab-content hidden"><p class="section-label">طريقة اللعب</p>
+<p class="guide">• البناء: اختر نموذجاً ثم اضغط على أرض المدينة لوضعه.</p><p class="guide">• الكاميرا: اسحب بإصبعك أو الفأرة لتدوير المشهد.</p>
+<p class="guide">• التقريب: استخدم عجلة الفأرة أو إيماءة القرص على الهاتف.</p><p class="guide">• الاستكشاف: فعّل الوضع ثم تحرك باستخدام WASD أو الأسهم.</p>
+<p class="guide">• الحفظ: زر الحفظ يخزن مواقع المباني محلياً على هذا الجهاز.</p></section>
+</aside>
+</main>
+<footer><span>نسخة تجريبية قابلة للتطوير</span><span id="status">تحميل المحرك…</span></footer>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body></html>
